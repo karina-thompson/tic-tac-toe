@@ -1,4 +1,8 @@
-  document.querySelector('#turn').innerHTML = "X's turn";
+var pretzel = '<img src=pretzel.png>';
+var donut = '<img src=donut.png>';
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('#turn').innerHTML = pretzel + "'s turn";
 })
 
 var ticTacToe = {
@@ -49,20 +53,26 @@ var turn = document.querySelector('#turn');
 
 gameBoard.addEventListener('click', function(event) {
   var winner = document.querySelector('#winner');
-  if (event.target.innerHTML === '') {
+  if (event.target.className === '') { //Is it a valid move?
     var player = ticTacToe.player();
-    event.target.innerHTML = player;
-    if (player === 'X') {
-      turn.innerHTML = ("O's turn");
-    } else {
-      turn.innerHTML = ("X's turn");
+    if (player === 'O') {
+      event.target.className = 'donut';
+      turn.innerHTML = (pretzel + "'s turn");
+    }
+    else {
+       event.target.className = 'pretzel';
+       turn.innerHTML = (donut +"'s turn"); 
     }
   }
   if (board[event.target.id] === null) {
     board[event.target.id] = player;
   }
   if (checkWinner(player) === true) {
-    return winner.innerHTML = player + " wins!";
+    if (player === 'O') {
+      return winner.innerHTML = donut + " wins!";
+    } else {
+      return winner.innerHTML = pretzel + " wins!";
+    } 
   }
   if (checkWinner(player) === "tie") {
     winner.innerHTML = "It's a tie!";
@@ -73,15 +83,17 @@ gameBoard.addEventListener('click', function(event) {
 
 document.querySelector('#reset').addEventListener('click', function() {
   for (var i =0;i<gameBoard.children.length;i++) {
-    gameBoard.children[i].innerHTML = null;
+    gameBoard.children[i].className = '';
     board[i] = null;
   }
   winner.innerHTML = '';
   ticTacToe.turnCount = 1;
-  turn.innerHTML = "X's turn";
+  turn.innerHTML = pretzel + "'s turn";
 })
 
 
 
+//Add a win count  and increment with each win
+//stop being able to click when someone has won? remove function outside of eventListener and use removeEventListener?
 
 
