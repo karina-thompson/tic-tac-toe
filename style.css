@@ -1,47 +1,24 @@
-body {
+* {
   box-sizing: border-box;
 }
 
-.gameBoard {
+#board {
   width: 300px;
 }
 
-
-
-#box1, #box2, #box3 {
-  width: 30%;
-  padding-bottom: 30%;
-  display:inline-block;
-  background-color: grey;
-  margin-bottom: 4px;
-
-}
-
-#box4, #box5, #box6 {
-  width: 30%;
-  padding-bottom: 30%;
-  display:inline-block;
-  background-color: grey;
-  margin-bottom: 4px;
-}
-
-#box7, #box8, #box9 {
-  width: 30%;
-  padding-bottom: 30%;
-  display:inline-block;
-  background-color: grey;
+#board > div {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  float: left;
+  border: 2px solid black;
+  background-color: teal;
 }
 
 
 
-/*text-align:center
-line-height: 100px 
-float or inline-block?
-border
 
-
-/*   >  child selector eg .board > div */
-/* space decendant */
 
 
 
