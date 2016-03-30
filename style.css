@@ -1,21 +1,47 @@
 * {
   box-sizing: border-box;
-  background-color: lavender;
   }
+
+body {
+  background: url('http://www.designbolts.com/wp-content/uploads/2013/02/Grey-cement-Seamless-Pattern-For-Website-Background.jpg');
+  font-family: 'Roboto', sans-serif;
+}
 
 header {
   text-align: center;
   padding-bottom: none;
+  color: #01579B;
 }
 
 h1 {
   font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 0;
+  /*color: #01579B;*/
+}
+
+h3 {
+  color: #0091EA;
+  margin-top: 1%;
+  margin-bottom: 3%;
+}
+
+#info {
+  font-size: 1.5em;
+  margin-bottom: 1%;
+
 }
 
 #board {
   margin: auto;
-  padding-top: 5%;
-  width: 320px;
+  width: 316px;
+  border: 8px solid #01579B;
+  box-shadow: 5px 5px 3px #424242;
+}
+
+.clearfix {
+  overflow: auto;
+  zoom: 1;
 }
 
 #board > div {
@@ -24,14 +50,14 @@ h1 {
   line-height: 100px;
   text-align: center;
   float: left;
-  border: 2px solid black;
-  background-color: teal;
+  border: 2px solid #0091EA;
+  background-color: #81D4FA;
 }
 
-#info {
+#reset {
   clear: both;
   text-align: center;
-  padding-top: 5%;
+  padding-top: 3%;
 }
 
 #winner {
@@ -50,6 +76,15 @@ img {
 
 .pretzel {
   background: url('pretzel.png');
+}
+
+button {
+  background-color: #0091EA;
+  color: white;
+  border: 0;
+  border-bottom: 2px solid #01579B;
+  padding: 10px;
+  font-size: 1.5em;
 }
 
 
