@@ -21,12 +21,12 @@
 
 var board = [null,null,null,null,null,null,null,null,null];
 
-var counter = 0;
+var turnCount = 1;
 
 var winner = document.querySelector('#winner');
 
 var whoseTurn = function() {
-  counter = counter + 1;
+  turnCount = turnCount + 1;
   if (counter%2 === 0) {
     return 'X';
   }
@@ -44,6 +44,7 @@ resetBtn.addEventListener('click', function() {
     board[i] = null;
   }
   winner.innerHTML = '';
+  turnCount = 1;
 })
 
  
@@ -82,7 +83,6 @@ var checkWinner = function(player) {
 }
 
 
-
 var gameBoard = document.querySelector('#board');
 
 gameBoard.addEventListener('click', function(event) {
@@ -94,7 +94,7 @@ gameBoard.addEventListener('click', function(event) {
     board[event.target.id] = player;
   }
   if (checkWinner(player) === true) {
-    winner.innerHTML = player + " wins!";
+    return winner.innerHTML = player + " wins!";
   }
   if (checkWinner(player) === "tie") {
     winner.innerHTML = "It's a tie!";

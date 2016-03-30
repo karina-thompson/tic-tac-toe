@@ -1,9 +1,20 @@
 * {
   box-sizing: border-box;
+  background-color: grey;
+  }
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
 }
 
 #board {
-  width: 300px;
+  margin: auto;
+  padding-top: 5%;
+  width: 320px;
 }
 
 #board > div {
@@ -16,7 +27,16 @@
   background-color: teal;
 }
 
+#info {
+  clear: both;
+  text-align: center;
+  padding-top: 5%;
+}
 
+#winner {
+  padding-top: 5%;
+  font-size: 2em;
+}
 
 
 
