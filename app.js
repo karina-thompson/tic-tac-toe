@@ -1,94 +1,62 @@
+  document.querySelector('#turn').innerHTML = "X's turn";
+})
 
-/* 
-1. Player X starts
-2. Click on square, change square contents to X 
-4. Click on another square, change contents to O
-5. If 3 Xs horizontally, diagonally or vertically, X wins. Alternatively, 3 O's.
-6. If all squares filled, it's a tie ---or should I count Xs and Os??
-7.Reset button
-*/
-
-
-//dt revision stuff
-// var board = "x x x x x o o o".split(' ');
-
-// for (var i =0; i<board.length; i++) {
-//   var box = document.createElement('div');
-//   box.innerHTML = board[i];
-// }
-
-// document.querySelector('.board').appendChild(box);
+var ticTacToe = {
+  turnCount: 1,
+  player: function() {
+    ticTacToe.turnCount = ticTacToe.turnCount + 1;
+    if (ticTacToe.turnCount%2 === 0) {
+      return 'X';
+    }
+    else {
+      return 'O';
+    }
+  }
+}
 
 var board = [null,null,null,null,null,null,null,null,null];
 
-var turnCount = 1;
 
-var winner = document.querySelector('#winner');
-
-var whoseTurn = function() {
-  turnCount = turnCount + 1;
-  if (counter%2 === 0) {
-    return 'X';
+var checkWinner = function(player) {
+  for (var i = 0;i<=8;i+=3) { 
+    if (board[i] === player && board[i+1] === player && board[i+2] === player) {
+    return true;
+    }
   }
-  else {
-    return 'O';
+  for (var j = 0;j<=2;j++) {
+    if (board[j] === player && board[j+3] === player && board[j+6] === player) {
+      return true;
+    }
   }
+  if (board[0] === player && board[4] === player && board[8] === player) {
+      return true;
+    }
+  if (board[2] === player && board[4] === player && board[6] === player) {
+      return true;
+    }
+  if (board.indexOf(null) === -1) {
+    return "tie";
+  }
+  return false;
 }
-
-
-var resetBtn = document.querySelector('#reset');
-
-resetBtn.addEventListener('click', function() {
-  for (var i =0;i<gameBoard.children.length;i++) {
-    gameBoard.children[i].innerHTML = null;
-    board[i] = null;
-  }
-  winner.innerHTML = '';
-  turnCount = 1;
-})
 
  
 
-var checkWinner = function(player) {
-  if (board[0] === player && board[1] === player && board[2] === player) {
-   return true;
-  }
-  else if (board[3] === player && board[4] === player && board[5] === player) {
-    return true;
-  }
-  else if (board[6] === player && board[7] === player && board[8] === player) {
-    return true;
-  }
-  else if (board[0] === player && board[3] === player && board[6] === player) {
-    return true; 
-  }
-  else if (board[1] === player && board[4] === player && board[7] === player) {
-    return true;
-  }
-  else if (board[2] === player && board[5] === player && board[8] === player) {
-    return true;
-  }
-  else if (board[0] === player && board[4] === player && board[8] === player) {
-    return true;
-  }
-  else if (board[2] === player && board[4] === player && board[6] === player) {
-    return true;
-  }
-  else if (board.indexOf(null) === -1) {
-    return "tie";
-  }
-  else {
-    return false;
-  }
-}
-
 
 var gameBoard = document.querySelector('#board');
+var turn = document.querySelector('#turn');
+
 
 gameBoard.addEventListener('click', function(event) {
+  var winner = document.querySelector('#winner');
   if (event.target.innerHTML === '') {
-    var player = whoseTurn();
+    var player = ticTacToe.player();
     event.target.innerHTML = player;
+    if (player === 'X') {
+      turn.innerHTML = ("O's turn");
+    } else {
+      turn.innerHTML = ("X's turn");
+    }
   }
   if (board[event.target.id] === null) {
     board[event.target.id] = player;
@@ -102,6 +70,16 @@ gameBoard.addEventListener('click', function(event) {
 })
 
 
+
+document.querySelector('#reset').addEventListener('click', function() {
+  for (var i =0;i<gameBoard.children.length;i++) {
+    gameBoard.children[i].innerHTML = null;
+    board[i] = null;
+  }
+  winner.innerHTML = '';
+  ticTacToe.turnCount = 1;
+  turn.innerHTML = "X's turn";
+})
 
 
 
