@@ -1,4 +1,4 @@
-# Tic Tac Toe - Donuts vs Pretzels
+# Tic Tac Toe - Pretzels and Donuts
 
 This is my first project for General Assembly Melbourne Web Development Immersive (WDI6), in week 3 of the 12 week course.
 
