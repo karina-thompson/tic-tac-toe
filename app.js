@@ -74,12 +74,12 @@ var makeMove = function(event) {
     if (player === 'O') {
       info.innerHTML = ticTacToe.donut + " WINS!";
       ticTacToe.oWins = ticTacToe.oWins + 1;
-      document.querySelector('#oWins').innerHTML = "Donut Wins: " + ticTacToe.oWins;
+      oWinDisplay.innerHTML = "Donut has Won: " + ticTacToe.oWins;
       return;
     } else {
       info.innerHTML = ticTacToe.pretzel + " WINS!";
       ticTacToe.xWins = ticTacToe.xWins + 1;  
-      document.querySelector('#xWins').innerHTML = "Pretzel Wins: " + ticTacToe.xWins;
+      xWinDisplay.innerHTML = "Pretzel has Won: " + ticTacToe.xWins;
       return;
     } 
   }
@@ -121,8 +121,8 @@ var resetWinCounter = function() {
 document.addEventListener('DOMContentLoaded', function() {
   info.innerHTML = ticTacToe.pretzel + " plays first";            //initial turn for pretzel set
   //Initial zero win counters
-  xWinDisplay.innerHTML = "Pretzel Wins: " + ticTacToe.xWins;
-  oWinDisplay.innerHTML = "Donut Wins: " + ticTacToe.oWins;
+  xWinDisplay.innerHTML = "Pretzel has Won: " + ticTacToe.xWins;
+  oWinDisplay.innerHTML = "Donut has Won: " + ticTacToe.oWins;
   tieDisplay.innerHTML = "Ties: " + ticTacToe.ties;  
   //event listeners for board clicks and reset buttons
   gameBoard.addEventListener('click',makeMove);              
