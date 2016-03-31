@@ -21,7 +21,7 @@ The game keeps track of multiple rounds, which can be reset at any time.
 - I have tried to make it responsive using a media query in my CSS file, placing the bottom buttons on top of each other rather than all across one line.
 - Some other challenges I had to solve while making the game were: learning how to turn the eventListener off once a game is won to prevent further moves and putting loops into my checkWinner function to avoid long lines of if/else checking every possible winning combination.
 
-[Github repository for this project] (https://github.com/nakarielle/tic-tac-toe) 
+[My Github Repository for this Project] (https://github.com/nakarielle/tic-tac-toe) 
 
 
 ###Posible future directions for this project
