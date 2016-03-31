@@ -1,8 +1,8 @@
 
 //defining variables and the player function to switch turns
 var ticTacToe = {
-  pretzel: '<img src=pretzel.png>',
-  donut: '<img src=donut.png>',
+  pretzel: '<img src="pretzel.png">',
+  donut: '<img src="donut.png">',
   board: [null,null,null,null,null,null,null,null,null],
   turnCount: 1,
   player: function() {
@@ -15,6 +15,11 @@ var ticTacToe = {
     }
   }
 }
+
+
+var gameBoard = document.querySelector('#board');
+var info = document.querySelector('#info');
+
 
 var checkWinner = function(player) {
   //horizontal line wins
@@ -43,18 +48,8 @@ var checkWinner = function(player) {
   return false;
 }
 
-//Initial turn for pretzel
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('#info').innerHTML = ticTacToe.pretzel + " plays first";
-})
-
-
-var gameBoard = document.querySelector('#board');
-var info = document.querySelector('#info');
-
-//when board is clicked
-gameBoard.addEventListener('click', function(event) {
-  if (event.target.className === '') { //Is it a valid move?
+var makeMove = function(event) {
+   if (event.target.className === '') {  //Is it a valid move?
     var player = ticTacToe.player();
     if (player === 'O') {
       event.target.className = 'donut';
@@ -69,33 +64,52 @@ gameBoard.addEventListener('click', function(event) {
     ticTacToe.board[event.target.id] = player;
   }
   if (checkWinner(player) === true) {
+    gameBoard.removeEventListener('click', makeMove);    //stop being able to play further after a win
     if (player === 'O') {
-      return info.innerHTML = ticTacToe.donut + " WINS!";
+      info.innerHTML = ticTacToe.donut + " WINS!";
+      return "O";
     } else {
-      return info.innerHTML = ticTacToe.pretzel + " WINS!";
+      info.innerHTML = ticTacToe.pretzel + " WINS!";
+      return "X";
     } 
   }
   if (checkWinner(player) === "tie") {
-    info.innerHTML = ticTacToe.pretzel + " It's a tie! " + ticTacToe.donut;
+    info.innerHTML = ticTacToe.pretzel + " IT'S A TIE! " + ticTacToe.donut;
+      return "tie";
   }
-})
+}
 
-
-//Reset board button
-document.querySelector('#resetBtn').addEventListener('click', function() {
+var resetBoard = function() {
   for (var i =0;i<gameBoard.children.length;i++) {
     gameBoard.children[i].className = '';
     ticTacToe.board[i] = null;
   }
   ticTacToe.turnCount = 1;
+  gameBoard.addEventListener('click',makeMove);
+  //randomize who plays first
+  if (Math.random() <= 0.5) {
   info.innerHTML = ticTacToe.donut + " plays first";
+  } else {
+    info.innerHTML = ticTacToe.pretzel + " plays first";
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  info.innerHTML = ticTacToe.pretzel + " plays first";            //initial turn for pretzel set
+  gameBoard.addEventListener('click',makeMove);                       //event listener starts for clicks on board
+  document.querySelector('#resetBtn').addEventListener('click', resetBoard);      //reset board button
 })
 
 
 
+
+
+
+
+
+
 //Add a win count  and increment with each win
-//change who starts each game
-//stop being able to click when someone has won? remove function outside of eventListener and use removeEventListener? have start and end game functions perhaps?
 //local storage??
 //readme file
 
