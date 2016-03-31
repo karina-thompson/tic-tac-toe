@@ -4,7 +4,7 @@ This is my first project for General Assembly Melbourne Web Development Immersiv
 
 Written using HTML, CSS and Javascript.
 
-**The Game**
+###The Game
 
 This is a simple tic tac toe, or noughts and crosses, game to be played by two players at the same computer.
 To win, a player must get 3 in a row in any direction. 
@@ -12,7 +12,7 @@ The game keeps track of multiple rounds, which can be reset at any time.
 
 [Play the Game!] (http://nakarielle.github.io/tic-tac-toe/)
 
-**My approach**
+###My approach
 
 - I started with a basic HTML and CSS mock up that rendered a game board on the screen, and used a Javascript array to get track of the game behind the scenes.
 - Once the basic game was working, I decided to improve the design by using images of donuts and pretzels instead of X's and O's. This presented a few challenges (inserting an image directly into the squares meant I couldn't keep track of whether a square had been clicked on already - the click target became the image, not the <div>. This was solved by chnging the div's class and insetting a background image in CSS).
@@ -24,7 +24,7 @@ The game keeps track of multiple rounds, which can be reset at any time.
 [Github repository for this project] (https://github.com/nakarielle/tic-tac-toe) 
 
 
-**Posible future directions for this project**
+###Posible future directions for this project
 
 - Adding in a mode where one player can play against the computer.
 - Allowing a player to select their playing token.
