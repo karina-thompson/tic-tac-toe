@@ -78,7 +78,7 @@ var makeMove = function(event) {
       return;
     } else {
       info.innerHTML = ticTacToe.pretzel + " WINS!";
-      ticTacToe.xWins = ticTacToe.xWins + 1;
+      ticTacToe.xWins = ticTacToe.xWins + 1;  
       document.querySelector('#xWins').innerHTML = "Pretzel Wins: " + ticTacToe.xWins;
       return;
     } 
@@ -101,6 +101,7 @@ var resetBoard = function() {
   //Randomize who plays first
   if (Math.random() <= 0.5) {
   info.innerHTML = ticTacToe.donut + " plays first";
+  ticTacToe.turnCount = ticTacToe.turnCount + 1;    //Switches so donut plays first
   } else {
     info.innerHTML = ticTacToe.pretzel + " plays first";
   }
