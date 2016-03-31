@@ -10,11 +10,12 @@
   <header>
     <h1><img src="donut.png">  Tic Tac Toe  <img src="pretzel.png"></h1>
     <h3>Battle of the Baked Goods</h3>
+    <p>Grab a friend to play against!</p>
     <div id="info"></div>
   </header>
 
 
-  <div class="clearfix" id="board">
+  <div id="board">
       <div id="0"></div>
       <div id="1"></div>
       <div id="2"></div>
@@ -26,11 +27,24 @@
       <div id="8"></div>
   </div>
 
+  <footer>
+    <div id="leftCorner">
+      <div id="oWins"></div>
+      <div id ="xWins"></div> 
+    </div> 
+
+    <div id="newGame">
+      <button id="resetBoard">New Game</button>
+    </div>
  
-  <div id="reset">
-    <button id="resetBtn">Reset Board</button>
-  </div>
-   
+    <div id="rightCorner">
+      <div id="ties"></div>
+      <div>
+        <button id="resetCounters">Reset Win Counters</button>
+      </div>
+    </div>
+  </footer>
+
   <script src="app.js"></script>
 
 </body>
